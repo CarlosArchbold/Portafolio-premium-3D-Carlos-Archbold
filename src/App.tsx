@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import type { MouseEvent } from 'react';
 import BackgroundSequence from './components/BackgroundSequence';
 import { motion } from 'framer-motion';
 import { LanguageProvider, useLanguage } from './components/LanguageContext';
@@ -7,7 +8,7 @@ function ProfilePhotoCard() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     setMousePos({
       x: e.clientX - rect.left,
